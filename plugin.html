@@ -1,1 +1,38 @@
+<!-- Scope to force all visitors on mobile to install app start here -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
+    // Check for Android devices
+    if (/Android/i.test(userAgent)) {
+      window.location.href = "https://business.9jawap.net/";
+    }
+
+    // Check for iOS devices
+    if (/iPhone|iPad|iPod/i.test(userAgent)) {
+      window.location.href = "https://9jawap.net"; // Replace with your iOS app link
+    }
+  });
+</script>
+
+<!-- Scope to force all visitors on mobile to install app end here -->
+<script type="text/javascript">
+(function () {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  var isAndroid = /Android/i.test(userAgent);
+  var isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+  var isMobile = isAndroid || isIOS;
+  var isDesktop = !isMobile && (/Windows NT|Macintosh|Linux/i.test(userAgent));
+
+  if (isAndroid) {
+    window.location.replace("https://business.9jawap.net/");
+  } else if (isIOS) {
+    window.location.replace("https://9jawap.net");
+  } else if (isDesktop) {
+    // Always redirect desktop visitors
+    if (window.location.href === "https://9jawap.net/" || window.location.hostname === "9jawap.net" && window.location.pathname === "/") {
+      window.location.replace("https://business.9jawap.net");
+    }
+  }
+})();
+</script>
